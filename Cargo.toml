@@ -2,6 +2,13 @@
 name = "gemini-web-image"
 version = "0.1.0"
 edition = "2024"
+description = "Command-line image generation through the web Gemini app via cookie replay (no official API)."
+license = "MIT"
+repository = "https://github.com/ZmoleCristian/gemini-web-image"
+authors = ["zmole.cristian <tragdate@gmail.com>"]
+keywords = ["gemini", "image", "ai", "google", "cli"]
+categories = ["command-line-utilities", "api-bindings"]
+exclude = ["law.toml"]
 
 [dependencies]
 regex = "1.12.4"
