@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "Command-line image generation through the web Gemini app via cookie replay (no official API)."
 license = "MIT"
+readme = "README.md"
 repository = "https://github.com/ZmoleCristian/gemini-web-image"
 authors = ["zmole.cristian <tragdate@gmail.com>"]
 keywords = ["gemini", "image", "ai", "google", "cli"]
