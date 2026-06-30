@@ -1,6 +1,6 @@
 [package]
 name = "gemini-web-image"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Command-line image generation through the web Gemini app via cookie replay (no official API)."
 license = "MIT"

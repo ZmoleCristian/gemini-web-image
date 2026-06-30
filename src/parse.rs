@@ -2,7 +2,9 @@ use serde_json::Value;
 
 use crate::error::Error;
 
+/// An image produced by a generation request.
 pub struct GeneratedImage {
+    /// The image URL from the generation response (also the dedup key).
     pub url: String,
     pub(crate) blob: String,
     pub(crate) placeholder: String,

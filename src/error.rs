@@ -1,5 +1,6 @@
 use thiserror::Error;
 
+/// Everything that can go wrong talking to web Gemini.
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("http transport failed: {0}")]

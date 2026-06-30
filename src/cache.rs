@@ -1,3 +1,5 @@
+//! Persist the cookie jar between runs so the session survives restarts.
+
 use std::fs;
 use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
@@ -5,6 +7,7 @@ use std::path::Path;
 use crate::cookies::Cookie;
 use crate::error::Error;
 
+/// Write `cookies` to `path` as JSON with `0600` permissions.
 pub fn save(path: &Path, cookies: &[Cookie]) -> Result<(), Error> {
     let json = serde_json::to_string(cookies)?;
     fs::write(path, json)?;
@@ -12,6 +15,7 @@ pub fn save(path: &Path, cookies: &[Cookie]) -> Result<(), Error> {
     Ok(())
 }
 
+/// Read a cookie jar previously written by [`save`].
 pub fn load(path: &Path) -> Result<Vec<Cookie>, Error> {
     let raw = fs::read_to_string(path)?;
     let cookies = serde_json::from_str(&raw)?;

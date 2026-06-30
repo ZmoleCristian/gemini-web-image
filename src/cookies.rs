@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::error::Error;
 
+/// A single Google cookie: its `name`, `value`, and the `domain` it scopes to.
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Cookie {
     pub domain: String,
@@ -12,6 +13,11 @@ pub struct Cookie {
     pub value: String,
 }
 
+/// Load all `google.com` cookies from a Netscape `cookies.txt` export.
+///
+/// Strips the `#HttpOnly_` domain prefix and keeps the whole google.com family
+/// (needed for `/u/N` multi-account targeting). Errors with [`Error::CookieMissing`]
+/// if `__Secure-1PSID` is absent.
 pub fn load_netscape(path: &Path) -> Result<Vec<Cookie>, Error> {
     let raw = fs::read_to_string(path)?;
 
